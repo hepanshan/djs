@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=yes" />
+    <title>原生js实现简单的一款倒计时计时插件</title>
+    <meta name="keywords" content="原生js,简单,倒计时,计时插件" />
+    <meta name="description" content="原生js实现简单的一款倒计时计时插件下载。基于原生JavaScript编写的一款通用倒计时计时插件，精确到毫秒，简单实用。" /> 
+    <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" />
+    <script type="text/javascript" src="protect.js"></script>
+    <link rel="stylesheet" type="text/css" href="www.jsdaima.com.css">
+    <style type="text/css">
+        .fangkuai i{
+            font-size: 50px;
+        }
+        .fangkuai span{
+            display: block;
+            margin: 10px auto;
+            width: 25%;
+            height: 80px;
+        }
+        span p:first-child{
+            font-size: 35px;
+        }
+        span p:last-child{
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript" src="timecountdown.js"></script>
+<script type="text/javascript">
+    /**
+     * time.day 和 time.dayZero 区别
+     * time.day 如果是1天 返回 1
+     * time.dayZero 如果是1天 则返回 01
+     * 除了day拥有Zero外 hour,minute,second,msec都有Zero 即小于10的，都会在前面补0
+     */
+    window.onload=function(){
+        xcsoft.countdown('2020-03-28',function (time) {
+            //time.days=总天数
+            document.getElementById("y1").innerHTML=time.year
+            document.getElementById("d1").innerHTML=time.day
+            document.getElementById("h1").innerHTML=time.hourZero
+            document.getElementById("i1").innerHTML=time.minuteZero
+            document.getElementById("s1").innerHTML=time.secondZero
+            document.getElementById("m1").innerHTML=time.msecZero
+        },function (time) {
+            //倒计时结束后的操作
+        })
+        xcsoft.countup('2018-11-11',function (time) {
+            document.getElementById("y2").innerHTML=time.year
+            document.getElementById("d2").innerHTML=time.day
+            document.getElementById("h2").innerHTML=time.hourZero
+            document.getElementById("i2").innerHTML=time.minuteZero
+            document.getElementById("s2").innerHTML=time.secondZero
+        })
+
+        var nes=parseInt(new Date().getTime()/1000)+60;
+        xcsoft.countdown(parseInt(nes)+'.3',function (time) {
+            document.getElementById("s3").innerHTML=time.secondZero
+            document.getElementById("m3").innerHTML=time.msecZero
+        })
+
+    }
+</script>
+
+
+<div class="fangkuai">
+    <i>距2020年3月28日还有</i>
+    <div>
+        <span class="red">
+            <p id="y1"></p>
+            <p>年</p>
+        </span>
+        <span class="yg">
+            <p id="d1"></p>
+            <p>天</p>
+        </span>
+        <span class="or">
+            <p id="h1"></p>
+            <p>时</p>
+        </span>
+        <span class="pi">
+            <p id="i1"></p>
+            <p>分</p>
+        </span>
+        <span class="pk">
+            <p id="s1"></p>
+            <p>秒</p>
+        </span>
+        <span class="mk">
+            <p id="m1"></p>
+            <p>毫秒</p>
+        </span>
+    </div>
+</div>
+<!-- <section data-role="outer" label="Powered by 135editor.com" style="font-size:16px;font-family:微软雅黑;"><section data-id="undefined" class="" style="border-width: 0px;border-style: none;border-color: initial;box-sizing: border-box;"><section style="display: flex;justify-content: center;padding-top: 1em;padding-bottom: 1em;box-sizing: border-box;"><section style="width:3em;margin-top: -0.5em;margin-right:-24px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);"><br></section><section style="width:3em;margin-top: -0.5em;margin-left:-24px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);"><img class=" __bg_gif" data-ratio="0.7232142857142857" data-src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif" data-type="gif" data-w="112" style="display: block; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" data-order="0" data-fail="0"></section></section></section><p style="text-align:justify;text-justify:inter-ideograph;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">太冷不想起床，磨蹭半小时，结果迟到了。</span></strong></span></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="text-align:justify;text-justify:inter-ideograph;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">下班回家，也不想开电脑学习，躺在床上刷微博。</span></strong></span></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="text-align:justify;text-justify:inter-ideograph;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">十点多了，该睡觉了，也懒得去卫生间，挣扎半天，终于解决完，再次躺在床上定睛一看，已经十一点了。</span></strong></span></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="text-align:justify;text-justify:inter-ideograph;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">慢慢的，你也懒得学习，懒得努力了。</span></strong></span></p><p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img class="" data-ratio="0.7493917274939172" data-src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkeI1EMhVDCotUJHLgHIPu3Pzia6my1DScGjMPs26RHTL4ialMunJ3C7iacA/640?wx_fmt=png" data-type="png" data-w="411" _width="411px" src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkeI1EMhVDCotUJHLgHIPu3Pzia6my1DScGjMPs26RHTL4ialMunJ3C7iacA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="width: 411px !important; height: auto !important; visibility: visible !important;" crossorigin="anonymous" data-fail="0"></p><p style="text-align:justify;text-justify:inter-ideograph;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">再后来，你看着满脸平庸的生活，成日里的无趣，开始焦虑，厌倦着自己。</span></strong></span></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="text-align:justify;text-justify:inter-ideograph;"><br></p><p style="border-bottom: 1px solid windowtext;text-align: justify;"><span style="font-size: 15px;"><strong><span style="font-family: 宋体;">看到这，是不是感觉马上一桶鸡汤就要到账了？but</span></strong></span></p><p><br></p><section data-id="undefined" class="" style="border-width: 0px;border-style: none;border-color: initial;box-sizing: border-box;"><section style="display: flex;justify-content: center;padding-top: 1em;padding-bottom: 1em;box-sizing: border-box;"><section style="width:3em;margin-top: -0.5em;margin-right:-24px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);"><img class=" __bg_gif" data-ratio="0.7232142857142857" data-src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif" data-type="gif" data-w="112" style="display: block; transform: scaleX(-1); width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" data-order="1" data-fail="0"></section><section style="width:3em;margin-top: -0.5em;margin-left:-24px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);"><img class=" __bg_gif" data-ratio="0.7232142857142857" data-src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif" data-type="gif" data-w="112" style="display: block; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://mmbiz.qpic.cn/mmbiz_gif/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfke9jiazibpbPkSNJaZtbwnBmHX3z8UGEsAk38VqXGBzSaTjR2TT6mIh0tA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" data-order="2" data-fail="0"></section></section></section><p style="text-align: justify;text-indent: 2em;"><span style="font-size: 15px;color: rgb(0, 0, 0);"><strong><span style="font-size: 15px;font-family: 宋体;">人不就是要在无趣的人生中，寻找有趣的碎片，追寻着不多的有趣，然后快乐的活着嘛~</span></strong></span></p><p style="text-align: justify;text-indent: 2em;"><span style="font-size: 15px;color: rgb(0, 0, 0);"><strong><span style="font-size: 15px;color: rgb(0, 0, 0);font-family: 宋体;">懒，或许很堕落，但是真TM的舒服啊！躺在床上是我最大的快乐来源，如果再加上肥仔快乐零食，简直是至尊享受的完美模板！</span></strong></span></p><p style="text-align: justify;text-indent: 2em;"><span style="font-size: 15px;color: rgb(0, 0, 0);"><strong><span style="font-size: 15px;color: rgb(0, 0, 0);font-family: 宋体;">不过，如果在享受的同时，再有一点小小的进步就更好了，比如说在玩手机的时候，偶尔看一看专业的文章，多关注一些本行业的消息。既不耽误玩乐，也可以积累知识。何乐而不为呢？</span></strong></span></p><p style="text-align: justify;text-indent: 2em;"><span style="font-size: 15px;color: rgb(0, 0, 0);"><strong><span style="font-size: 15px;color: rgb(0, 0, 0);font-family: 宋体;">不要因为自己懒惰而焦虑，更不要苛求自己。一个人是无法立刻从一只萌新变成大佬的。只要你不放弃进步的希望，就算是慢慢爬，也可以接近理想中的自己。</span></strong></span></p><p style="text-align: justify;text-indent: 2em;"><span style="font-size: 15px;color: rgb(0, 0, 0);"><strong><span style="font-size: 15px;color: rgb(0, 0, 0);font-family: 宋体;">毕竟我们可不是一出生就在罗马的人呢，上篇写到了梦想，如果没读过的小朋友，欢迎去戳一下~阿易的梦想是成为王思明，不知道你们的梦想是什么呢？</span></strong></span></p><p><br></p><p><br></p><p><br></p><section class="" data-tools="135编辑器" data-id="2834" style="border-width: 0px;border-style: none;border-color: initial;box-sizing: border-box;"><section style="text-align: center;"><section style="display: inline-block;display:flex;justify-content: center;align-items:flex-start;"><section style="width:30px;margin-top:13px;margin-right: -20px;"><img class="" data-ratio="1.188235294117647" data-src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkePLSJbNB6froZCXgMa00LF6wKKhgRBD7P9yFme2p9LiboWcribtgM5Wcg/640?wx_fmt=png" data-type="png" data-w="85" data-width="100%" style="width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkePLSJbNB6froZCXgMa00LF6wKKhgRBD7P9yFme2p9LiboWcribtgM5Wcg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" crossorigin="anonymous" data-fail="0"></section><section class="" data-brushtype="text" style="color: rgb(85, 67, 56);letter-spacing: 1px;display: inline-block;padding-right: 1.5em;padding-bottom: 1px;padding-left: 1.5em;border-bottom: 1px solid rgb(85, 67, 56);box-sizing: border-box;">点个好看好不好~</section><section style="width:40px;margin-top: 12px;margin-left: -20px;"><img class="" data-ratio="0.796875" data-src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkem4FHEtuSMDu5s6NicYFPWfJcrZqTMfKTzs6bm3q5yZPKgC8OvffDx7A/640?wx_fmt=png" data-type="png" data-w="128" data-width="100%" style="width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://mmbiz.qpic.cn/mmbiz_png/yCqVm5Nd9LXBI6jb0XVS3gB4nDibWgfkem4FHEtuSMDu5s6NicYFPWfJcrZqTMfKTzs6bm3q5yZPKgC8OvffDx7A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" crossorigin="anonymous" data-fail="0"></section></section></section></section></section>
+ -->
+<!--http://www.jsdaima.com/js/demo/793.html-->
+
+</body>
+</html>
